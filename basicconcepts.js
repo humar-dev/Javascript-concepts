@@ -76,3 +76,138 @@ function greet(){
 myfunction()
 
 
+   // <----------Temporal dead Zone (TDZ) concept ------------>:
+  // The time period between
+  // variable hoisted ---------- to -------actually declared in the code
+  
+  {
+    // TDZ start here
+    // TDZ coninues here 
+    // TDZ coninues here 
+    // console.log(bestfood)  ReferenceError: Cannot access 'bestfood' before initialization  ---> TDZ continues here
+    let bestfood ;  // TDZ end here
+    console.log(bestfood)
+    bestfood = "golgappy"
+    console.log(bestfood)
+
+  }
+
+
+
+  // <-------- Data Type Conversions ------->
+  
+// Two types of conversions
+//1-Implicit (operationla Based)
+//2-explicit
+  
+// " - "  operation always try to do numeric operation , so javascript try to convert string to a number and perform subtraction
+// Except " + "  factor favous string concatenation if either side side is string
+
+console.log("5"+ 1)    // "51" string concatenation
+console.log("5"- 1)    //4
+console.log("5" - "7")  // -2
+console.log("5" * 3)   //15
+console.log(true + 1)  //1 
+console.log("hello" + false )  // "hellofalse"
+
+console.log(1 + 2 + "4") // js evaluates expression from left to right 
+// 1+2  => 3
+//3 + "4" => "34"     implicit conversion , so 1 + 2 + "4" = "32"
+
+
+let sum1 = null
+console.log(typeof sum1)  // object
+
+
+
+let sumValue = "123"
+let con_sumValue = Number(sumValue)
+console.log(con_sumValue);  // print 123 , when sumvalue = "123" 
+console.log(con_sumValue);  //NaN
+ 
+console.log(typeof con_sumValue);  // number
+
+let word = "Drink"
+let convertedWord = Number(word)
+console.log(convertedWord)      // NaN
+
+// 1 => true
+// 0 => false
+// "" =>false
+// "Aiman" => true
+
+let loggedIn = "Aiman"
+let con_LoggedIn = Boolean(loggedIn)
+console.log(con_LoggedIn) // true
+
+ 
+console.log( "<----Prefix and Postfix Concept--->")
+let sum2 = 2
+sum2++;
+console.log(sum2) // 3
+console.log(sum2++)  // postflix --> 3
+console.log(++sum2)  // prefix --> 5
+
+
+
+//<----------- Comparsion Operators---------->
+
+// if operands are different Js try to convert them into numbers
+// Any comparison with NaN is  false
+// == check values only
+// === check values + types
+
+
+console.log("****  Comparsion Operators ****")
+// comparsion and equality check works differentialy
+// comparsion converts null to a number like null t0 0 
+// equality chcek == does not convert null to 0 , unless it compared with undefined
+
+console.log("5" == 5)  // true   => type conversion happens ( convert "5" o 5 ) 
+console.log("5" === 5)  // false
+
+
+
+console.log( null == undefined)  // true
+console.log( null === undefined) // false (type check null=>object & undefined=>undefined)
+
+console.log(NaN == NaN)  //false
+console.log(NaN === NaN)  //false
+
+console.log("10" > 2)    // true  => convert sting to a number
+console.log( "5" > 10 )    // false
+console.log( "60" > "5" )   // false
+console.log( "60" > "5" )   // true => when both strings it compares character by character  6  >  5 (true)
+console.log( "10" > "5" )   // false (1>5) false 
+console.log("accept" > 5) //false  =>  accpet is not a number   so , when Js tries to convert it  becomes NaN
+console.log(null > 0)   // false
+console.log(null < 0)   // false
+console.log(null === 0) // false
+console.log(null >=0 ) // true
+console.log(undefined == 0) // false
+
+
+
+
+
+
+//<-------------Data Type Concept------------>
+
+console.log("<-------- Array's--------->")
+
+ // Array ------> (Collection of Multiple values under one variable)
+
+//1-Primitive Data Types
+//2-Non-Primitive Data Types ( Arrays , objects , functions)
+
+
+let colors = ["red" , "green" , "blue" , "orange"]
+
+console.log(colors)
+console.log(colors[0])
+//console.log(colors[5])  // undefined
+
+colors.push("olive")
+colors.push("yellow")
+colors.pop("olive" , "yellow")
+console.log(colors)
