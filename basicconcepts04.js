@@ -1,14 +1,21 @@
 //<------------------------Aync Await----------------------->
+//  async function getData(){
+
+//     // simulate getting data from a server
+//   return new Promise ((resolve , reject)=>{
+//    setTimeout(()=>{
+//       resolve(455)
+//    },2000)
+//   })
+// }
+
+
  async function getData(){
-
-    // simulate getting data from a server
-  return new Promise ((resolve , reject)=>{
-   setTimeout(()=>{
-      resolve(455)
-   },2000)
-  })
+   let x = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+   let data = await x.json()
+   return data
+ 
 }
-
 
 // async  function main(){
 // console.log("Data Prepared")
