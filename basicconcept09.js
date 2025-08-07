@@ -18,3 +18,22 @@ const obj1 = { a: 1, b: 2 };
 const obj2 = { c: 3 };
 const mergedObj = { ...obj1, ...obj2 };
 console.log(mergedObj); // { a: 1, b: 2, c: 3 }
+
+
+// ...existing code...
+
+// --- New Concept: Template Literals and Tagged Templates ---
+
+const language = "JavaScript";
+const level = "beginner";
+
+// Template literals for easy string interpolation
+const message = `Welcome to ${language} concepts for ${level}s!`;
+console.log(message);
+
+// Tagged template function
+function emphasize(strings, ...values) {
+  return strings.reduce((result, str, i) => result + str + (values[i] ? values[i].toUpperCase() : ""), "");
+}
+const output = emphasize`Learning ${language} is ${level} friendly.`;
+console.log(output);
