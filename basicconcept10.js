@@ -26,3 +26,27 @@ genericAnimal.speak();
 
 const myDog = new Dog("Buddy", "Golden Retriever");
 myDog.speak(); 
+
+// ...existing code...
+
+// --- New Concept: Set and Map Data Structures ---
+
+// Set: stores unique values
+const numbersSet = new Set([1, 2, 3, 2, 1]);
+numbersSet.add(4);
+console.log(numbersSet); // Set { 1, 2, 3, 4 }
+console.log(numbersSet.has(3)); // true
+
+// Map: stores key-value pairs
+const capitals = new Map();
+capitals.set("France", "Paris");
+capitals.set("India", "Delhi");
+capitals.set("Japan", "Tokyo");
+
+console.log(capitals.get("India")); // Delhi
+console.log(capitals.size); // 3
+
+// Iterating over Map
+for (const [country, city] of capitals) {
+  console.log(`${country}: ${city}`);
+}
