@@ -54,3 +54,23 @@ const timer = {
 
 timer.start();
 // Arrow functions inherit 'this' from their enclosing scope, unlike regular functions.
+
+
+// ...existing code...
+
+// --- New Concept: Object Property Shorthand and Computed Property Names ---
+
+const fruit = "apple";
+const quantity = 5;
+
+// Object property shorthand
+const order = { fruit, quantity };
+console.log(order); // { fruit: 'apple', quantity: 5 }
+
+// Computed property names
+const dynamicKey = "price";
+const product = {
+  name: "Laptop",
+  [dynamicKey]: 1200
+};
+console.log(product); // { name: 'Laptop', price: 1200 }
