@@ -106,43 +106,75 @@
 
 
 // Mixin 1: CanEat
-const CanEat = {
-    eat() {
-        console.log(`${this.name} is eating.`);
-    }
-};
+// const CanEat = {
+//     eat() {
+//         console.log(`${this.name} is eating.`);
+//     }
+// };
 
-// Mixin 2: CanWalk
-const CanWalk = {
-    walk() {
-        console.log(`${this.name} is walking.`);
-    }
-};
+// // Mixin 2: CanWalk
+// const CanWalk = {
+//     walk() {
+//         console.log(`${this.name} is walking.`);
+//     }
+// };
 
-// Mixin 3: CanSwim
-const CanSwim = {
-    swim() {
-        console.log(`${this.name} is swimming.`);
-    }
-};
+// // Mixin 3: CanSwim
+// const CanSwim = {
+//     swim() {
+//         console.log(`${this.name} is swimming.`);
+//     }
+// };
 
-// Function to combine multiple mixins into one object
-function multipleInheritance(baseClass, ...mixins) {
-    Object.assign(baseClass.prototype, ...mixins);
+// // Function to combine multiple mixins into one object
+// function multipleInheritance(baseClass, ...mixins) {
+//     Object.assign(baseClass.prototype, ...mixins);
+// }
+
+// // Base class
+// class Animal {
+//     constructor(name) {
+//         this.name = name;
+//     }
+// }
+
+// // Apply multiple inheritance
+// multipleInheritance(Animal, CanEat, CanWalk, CanSwim);
+
+// // Create object
+// const duck = new Animal("Duck");
+// duck.eat();  // Duck is eating.
+// duck.walk(); // Duck is walking.
+// duck.swim(); // Duck is swimming.
+
+
+// Debounce function
+function debounce(func, delay) {
+    let timer;
+    return function(...args) {
+        clearTimeout(timer);
+        timer = setTimeout(() => func.apply(this, args), delay);
+    };
 }
 
-// Base class
-class Animal {
-    constructor(name) {
-        this.name = name;
-    }
+// Example usage: Simulate typing event
+function onType(text) {
+    console.log("Search for:", text);
 }
 
-// Apply multiple inheritance
-multipleInheritance(Animal, CanEat, CanWalk, CanSwim);
+// Wrap the function with debounce (run after 500ms pause)
+const debouncedSearch = debounce(onType, 500);
 
-// Create object
-const duck = new Animal("Duck");
-duck.eat();  // Duck is eating.
-duck.walk(); // Duck is walking.
-duck.swim(); // Duck is swimming.
+// Simulate user typing
+debouncedSearch("J");
+debouncedSearch("Ja");
+debouncedSearch("Jav");
+debouncedSearch("Java");
+debouncedSearch("JavaS");
+debouncedSearch("JavaSc");
+debouncedSearch("JavaScr");
+debouncedSearch("JavaScrip");
+debouncedSearch("JavaScript");
+
+// Only the last call will execute after 500ms
+
