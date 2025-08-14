@@ -178,3 +178,28 @@ debouncedSearch("JavaScript");
 
 // Only the last call will execute after 500ms
 
+// ...existing code...
+
+// --- New Concept: Static Methods and Properties in Classes ---
+
+class MathHelper {
+    static description = "Utility class for math operations";
+
+    static add(a, b) {
+        return a + b;
+    }
+
+    static multiply(a, b) {
+        return a * b;
+    }
+}
+
+console.log(MathHelper.description); // Utility class for math operations
+console.log(MathHelper.add(5, 3));  // 8
+console.log(MathHelper.multiply(4, 6)); // 24
+
+// Static methods and properties are called on the class itself, not on instances
+const helper = new MathHelper();
+console.log(typeof helper.add); // undefined
+
+// ...existing
