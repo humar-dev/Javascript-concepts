@@ -230,3 +230,7 @@ const counter = new Counter();
 counter.increment(); // Current count: 1
 counter.increment(); // Current count: 2
 console.log(counter.getCount()); // 2
+
+
+
+
