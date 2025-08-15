@@ -203,3 +203,30 @@ const helper = new MathHelper();
 console.log(typeof helper.add); // undefined
 
 // ...existing
+
+
+// ...existing code...
+
+// --- New Concept: Private Fields and Methods in Classes ---
+
+class Counter {
+    #count = 0; // private field
+
+    increment() {
+        this.#count++;
+        this.#logCount();
+    }
+
+    getCount() {
+        return this.#count;
+    }
+
+    #logCount() { // private method
+        console.log(`Current count: ${this.#count}`);
+    }
+}
+
+const counter = new Counter();
+counter.increment(); // Current count: 1
+counter.increment(); // Current count: 2
+console.log(counter.getCount()); // 2
