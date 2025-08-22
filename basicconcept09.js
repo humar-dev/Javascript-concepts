@@ -74,3 +74,5 @@ const product = {
   [dynamicKey]: 1200
 };
 console.log(product); // { name: 'Laptop', price: 1200 }
+
+

@@ -100,6 +100,72 @@
 
 
 
+// Event Loop and Concurrency Model in JavaScript
+
+console.log("Start");
+
+// Macro-task: setTimeout
+setTimeout(() => {
+  console.log("setTimeout callback (Macro-task)");
+}, 0);
+
+// Micro-task: Promise
+Promise.resolve().then(() => {
+  console.log("Promise.then callback (Micro-task)");
+});
+
+// Normal synchronous code
+for (let i = 0; i < 3; i++) {
+  console.log("Loop iteration:", i);
+}
+
+console.log("End");
+
+
+
+function add(a, b, c) {
+  return a + b + c;
+}
+
+console.log("Normal Function:", add(1, 2, 3));
+
+function curryAdd(a) {
+  return function (b) {
+    return function (c) {
+      return a + b + c;
+    };
+  };
+}
+
+console.log("Curried Function:", curryAdd(1)(2)(3));
+
+function curry(fn) {
+  return function curried(...args) {
+    if (args.length >= fn.length) {
+      return fn.apply(this, args);
+    } else {
+      return function (...nextArgs) {
+        return curried.apply(this, args.concat(nextArgs));
+      };
+    }
+  };
+}
+
+function multiply(a, b, c) {
+  return a * b * c;
+}
+
+const curriedMultiply = curry(multiply);
+
+console.log("Curried Multiply:", curriedMultiply(2)(3)(4));
+console.log("Partial Application:", curriedMultiply(2, 3)(4));
+
+
+
+
+
+
+
 
 
 
